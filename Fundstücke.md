@@ -5,7 +5,8 @@ Doch andereseits gibt es Fälle nach der Regel: _es genügt, wenn es compiliert!
 Im RL findet man Beispiele für Code den man sich nicht ausdenken könnte.
 
 ``` C#
-tring Template = "";
+// Auzug einer Methode in C#
+string Template = "";
 string TemplateSpace = @"\" +  @"""";
 …
 TemplateSpace = TemplateSpace.Remove(0,1);
