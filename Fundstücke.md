@@ -16,3 +16,7 @@ Template = GetTemplateRoot("Deutsch");
 if (Template.Contains(TemplateSpace))
    Template = Template.Replace(TemplateSpace, "");
 ```
+Kurzfassung
+``` C#
+string templatePath = GetTemplateRoot("Deutsch").Trim('"');
+```
