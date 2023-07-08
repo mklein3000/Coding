@@ -9,7 +9,7 @@ Im RL findet man Beispiele für Code den man sich nicht ausdenken könnte.
 string Template = "";
 string TemplateSpace = @"\" +  @"""";
 …
-TemplateSpace = TemplateSpace.Remove(0,1);
+TemplateSpace = Config.TemplateSpace.Remove(0,1);
 …
 Template = GetTemplateRoot("Deutsch");
 …
@@ -25,14 +25,20 @@ string TemplateSpace = @"\" +  @"""";  // '+' kann aufgelöst werden = \" kleins
 …
 TemplateSpace = TemplateSpace.Remove(0,1); // kann initial gemacht werden: …lateSpace = "\""; Hier wird nun erst klar das TemplateSpace ein "Quote" ist.
 …
-Template = GetTemplateRoot("Deutsch");  // hier wird ein Pfad zum Template zurückggegeben also GetTemplatePath
+Template = Config.GetTemplateRoot("Deutsch");  // hier wird ein Pfad zum Template zurückggegeben also GetTemplatePath
 …
 if (Template.Contains(TemplateSpace))  
    Template = Template.Replace(TemplateSpace, ""); "
 ```
-Kurzfassung
+Die Routine zum einlesen sollte stets nur qeneralisierte und geparste Daten zurückgenen. Das Trim'men gehört als in die 
+implementierung von GetTemplatePath
 ``` C#
-string templatePath = GetTemplatePath("Deutsch").Trim('"');
-// Die Routine zum einlesen sollte stets nur qeneralisierte und geparste Daten zurückgenen. Das Trim'men gehört als in die implementierung von GetTemplatePath
-string templatePath = GetTemplatePath("Deutsch");
+string GetTemplatePath(string language)
+{
+   string path …
+   … 
+   return path.Trim('"');
+}
+… 
+string templatePath = Config.GetTemplatePath("Deutsch");
 ```
